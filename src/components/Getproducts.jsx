@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
+import Card from "./Card";
+ 
+
+
 
 const Getproducts = () => {
 
@@ -55,27 +59,66 @@ const Getproducts = () => {
         {loading && <Loader />}
         <h4 className="text-danger"> {error} </h4>
 
+{/* The hooks section */}
+        <div>
+        <h5>Crochet Hooks</h5>
         {products.map((product) => (
-                <div className="col-md-3 justify-content-center mb-3">
-            
-            <div className="card shadow">
-              <img 
-              src={img_url + product.product_photo} 
-              alt="product name"
-              className='product_img mt-3' />
-
-              <div className="card-body">
-                <h5 className="text-primary"> {product.product_name} </h5>
-
-                <p className="text-dark"> {product.product_description.slice(0, 70)}... </p>
-
-                <h4 className="text-warning">Kes {product.product_cost} </h4>
-
-                <button className="btn btn-outline-secondary" onClick={() => navigate("/makepayment",  {state : {product}})}>Purchase Now</button>
-              </div>
-            </div>
+        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
+            <Card
+            product={product}
+            img_url={img_url}
+            navigate={navigate}
+        />     
+        </div>     
+        )
+        )}
         </div>
-        ))}
+
+{/* The yarn section */}
+        <div>
+        <h5>Yarn</h5>
+        {products.map((product) => (
+        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
+            <Card
+            product={product}
+            img_url={img_url}
+            navigate={navigate}
+        />     
+        </div>     
+        )
+        )}
+        </div>
+
+{/* The darning needles and stitch markers section */}
+        <div>
+        <h5>Crochet Hooks</h5>
+        {products.map((product) => (
+        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
+            <Card
+            product={product}
+            img_url={img_url}
+            navigate={navigate}
+        />     
+        </div>     
+        )
+        )}
+        </div>
+
+{/* The patterns section */}
+        <div>
+        <h5>Crochet Hooks</h5>
+        {products.map((product) => (
+        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
+            <Card
+            product={product}
+            img_url={img_url}
+            navigate={navigate}
+        />     
+        </div>     
+        )
+        )}
+        </div>
+    
     </div>
   )
 }
