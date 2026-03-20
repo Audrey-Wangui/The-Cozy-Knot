@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import "../css/Signin.css"; // import the external css
 
 const Signin = () => {
 
@@ -74,7 +75,7 @@ const Signin = () => {
 
   return (
     <div className='row justify-content-center mt-4'>
-      <div className="col-md-6 card shadow p-4">
+      <div className="col-md-8 p-4">
         
         <h5 className="text-info">{loading}</h5>
         <h3 className="text-success">{success}</h3>
@@ -82,7 +83,7 @@ const Signin = () => {
 
         <div className="page-background">
         <div className="form-container">
-        <StyledWrapper>
+        
 
         <form onSubmit={handlesubmit} className="form">
           <h1 className="title">Sign In</h1>
@@ -113,7 +114,7 @@ const Signin = () => {
          <button className="submit">Submit</button>
          <p className="signin">Don't have an Account? <Link to={'/signup'}> Sign up</Link> </p> 
         </form>
-        </StyledWrapper>
+       
         </div>
         </div>
 
@@ -122,159 +123,8 @@ const Signin = () => {
   )
 }
 
-const StyledWrapper = styled.div`
   
-  /* From Uiverse.io by micaelgomestavares */
-.form-card {
-  border: 1px solid #ddd; 
-  border-radius: 12px;     
-  padding: 40px;         
-  box-shadow: 0 4px 6px #621e3e(0,0,0,0.1); 
-}
-  
-  
-input {
-  width: 100%;        
-  box-sizing: border-box; 
-  display: block;     
-  margin-bottom: 15px; 
-}
 
-
-.form {
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 3500px;
-  background-color: #c6c954;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-}
-
-.title {
-  font-size: 28px;
-  color: #621e3e;
-  font-weight: 600;
-  letter-spacing: -1px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
-}
-
-.title::before,.title::after {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 0px;
-  background-color: #d9828d;
-}
-
-.title::before {
-  width: 18px;
-  height: 18px;
-  background-color: #d9828d;
-}
-
-.title::after {
-  width: 18px;
-  height: 18px;
-  animation: pulse 1s linear infinite;
-}
-
-.message, .signup {
-  color: #621e3e;
-  font-size: 25px;
-}
-
-.signin {
-  text-align: center;
-}
-
-.signin a {
-  color: #621e3e;
-}
-
-.signin a:hover {
-  text-decoration: underline ;
-  color: #d9828d;
-}
-
-.flex {
-  display: flex;
-  width: 100%;
-  gap: 6px;
-}
-
-.form label {
-  position: relative;
-}
-
-.form label .input {
-  width: 100%;
-  padding: 10px 10px 20px 10px;
-  outline: 0;
-  border: 1px solid #d9828d;
-  border-radius: 10px;
-}
-
-.form label .input + span {
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  color: #621e3e;
-  font-size: 0.9em;
-  cursor: text;
-  transition: 0.3s ease;
-}
-
-.form label .input:placeholder-shown + span {
-  top: 15px;
-  font-size: 0.9em;
-}
-
-.form label .input:focus + span,.form label .input:valid + span {
-  top: 0px;
-  font-size: 0.7em;
-  font-weight: 600;
-}
-
-.form label .input:valid + span {
-  color: green;
-}
-
-.submit {
-  border: none;
-  outline: none;
-  background-color: #d9828d;
-  padding: 10px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 16px;
-  transform: .3s ease;
-}
-
-.submit:hover {
-  background-color: #621e3e;
-  cursor: pointer;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(0.9);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
-  }`;
 
 export default Signin;
 

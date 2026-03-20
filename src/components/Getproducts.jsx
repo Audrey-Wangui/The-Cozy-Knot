@@ -2,7 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
-import Card from "./Card";
+import "../css/Getproducts.css"; // import the external css
+import Patternsection from './Patternsection.jsx';
+import Advertbanner from './Advertbanner.jsx';
+
  
 
 
@@ -55,70 +58,166 @@ const Getproducts = () => {
 
   return (
     <div className='row'>
-      <h3 className="text-primary">Our products</h3>
         {loading && <Loader />}
         <h4 className="text-danger"> {error} </h4>
 
-{/* The hooks section */}
-        <div>
-        <h5>Crochet Hooks</h5>
-        {products.map((product) => (
-        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
-            <Card
-            product={product}
-            img_url={img_url}
-            navigate={navigate}
-        />     
-        </div>     
-        )
-        )}
-        </div>
 
-{/* The yarn section */}
-        <div>
-        <h5>Yarn</h5>
-        {products.map((product) => (
-        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
-            <Card
-            product={product}
-            img_url={img_url}
-            navigate={navigate}
-        />     
-        </div>     
-        )
-        )}
-        </div>
+<div className="row justify-content-center g-4">
+  <h1 Style="color: #667436">Crochet hooks</h1>
 
-{/* The darning needles and stitch markers section */}
-        <div>
-        <h5>Crochet Hooks</h5>
-        {products.map((product) => (
-        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
-            <Card
-            product={product}
-            img_url={img_url}
-            navigate={navigate}
-        />     
-        </div>     
-        )
-        )}
-        </div>
+{/* Card 1 */}
+<div className="col-md-4 d-flex justify-content-center">
+        <div className="card">
+        <div className="card__shine" />
+        <div className="card__glow" />
+        <div className="card__content">
 
-{/* The patterns section */}
-        <div>
-        <h5>Crochet Hooks</h5>
         {products.map((product) => (
-        <div className='col-md-3 mb-3 justify-content-center' key={product.id}>
-            <Card
-            product={product}
-            img_url={img_url}
-            navigate={navigate}
-        />     
-        </div>     
-        )
-        )}
+            <div>
+            <div className="card__badge">NEW</div>
+
+            <div className="card__image">
+              <img 
+              src={img_url + product.product_photo} 
+              alt="product name"
+              className='product_img mt-3' />
+            </div>
+
+              <div className="card__text">
+                <h5 className="card_title"> {product.product_name} </h5>
+                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
+              </div>
+
+              <div className="card__footer">
+              <div className="card__price">Kes {product.product_cost} </div>
+              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
+              <svg height={16} width={16} viewBox="0 0 24 24">
+                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
+              </svg>  
+             </div>   
+             </div> 
+             </div>
+              
+             
+        
+        ))}
         </div>
+    </div>
+    </div>
+  
+  {/* card two */}
+  <div className="col-md-4 d-flex justify-content-center">
+        <div className="card">
+        <div className="card__shine" />
+        <div className="card__glow" />
+        <div className="card__content">
+
+        {products.map((product) => (
+            <div>
+            <div className="card__badge">NEW</div>
+
+            <div className="card__image">
+              <img 
+              src={img_url + product.product_photo} 
+              alt="product name"
+              className='product_img mt-3' />
+            </div>
+
+              <div className="card__text">
+                <h5 className="card_title"> {product.product_name} </h5>
+                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
+              </div>
+
+              <div className="card__footer">
+              <div className="card__price">Kes {product.product_cost} </div>
+              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
+              <svg height={16} width={16} viewBox="0 0 24 24">
+                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
+              </svg>  
+             </div>   
+             </div> 
+             </div>
+              
+             
+        
+        ))}
+        </div>
+    </div>
+    </div>
+
+  {/*Card Three  */}
+  <div className="col-md-4 d-flex justify-content-center">
+        <div className="card">
+        <div className="card__shine" />
+        <div className="card__glow" />
+        <div className="card__content">
+
+        {products.map((product) => (
+            <div>
+            <div className="card__badge">NEW</div>
+
+            <div className="card__image">
+              <img 
+              src={img_url + product.product_photo} 
+              alt="product name"
+              className='product_img mt-3' />
+            </div>
+
+              <div className="card__text">
+                <h5 className="card_title"> {product.product_name} </h5>
+                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
+              </div>
+
+              <div className="card__footer">
+              <div className="card__price">Kes {product.product_cost} </div>
+              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
+              <svg height={16} width={16} viewBox="0 0 24 24">
+                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
+              </svg>  
+             </div>   
+             </div> 
+             </div>
+              
+            
+        
+        ))}
+        </div>
+    </div>
+    </div>
     
+
+    <Patternsection />
+    <Advertbanner />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
     </div>
   )
 }

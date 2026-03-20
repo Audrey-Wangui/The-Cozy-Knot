@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Loader from './Loader'
+import "../css/Makepayment.css" // import the external css
 
 const Makepayment = () => {
     // Destructure the details passed from the get products component
@@ -59,49 +60,47 @@ const Makepayment = () => {
         }
     }
 
-  return (
-    <div className='row justify-content-center'>
-        {/* <button className="btn btn-outline-primary">Back to Product</button> */}
-        <h1 className="text-success">Make Payment - Lipa na M-Pesa</h1>
-        <div className="col-md-1">
-            <input type="button"
-            className='btn btn-primary'
-            value="<-Back"
-            onClick={() => navigate("/")} />
+    return(
+  <div className='row justify-content-center'>
+    <form onSubmit={handlesubmit}>
+      <div className="card">
+        <div className="card-img">
+          <img src={img_url + product.product_photo} alt="Product name" />
+        </div>
+        
+        <div className="card-info">
+          <p className="text-title">{product.product_name}</p>
+          <p className="text-body text-light">{product.product_description}</p>
+          <p className="text-body text-warning">KES {product.product_cost}</p>
         </div>
 
-        <div className="col-md-6 card shodow p-4">
-            <img src={img_url+ product.product_photo} alt="Product name" className='product_img' />
-
-            <div className="card-body">
-
-                <h2 className="text-info"> {product.product_name} </h2>
-                <p className="text-dark"> {product.product_description} </p>
-                <h3 className="text-warning">KES {product.product_cost} </h3> <br />
-
-                <form onSubmit={handlesubmit}>
-
-                    {loading && <Loader />}
-
-          <h3 className='text-success'> {success} </h3>
-          <h4 className='text-danger'> {error} </h4>
-
-                    <input type="number"
-                    className='form-control'
-                    placeholder='Enter the Phone Number (245xxxxxxxxxxx)'
-                    required 
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}/> <br /><br />
-
-                    <input type="submit"
-                    value="Make Payment"
-                    className='btn btn-success' />
-                </form>
-            </div>
+        <div className="card-footer">
+          <span className="text-title">
+            <input 
+              type="number"
+              className='form-control'
+              placeholder='Enter the Phone Number (254xxxxxxxxx)'
+              required
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+            />
+          </span>
+          <div className="card-button">
+            Make Payment
+            <svg className="svg-icon" viewBox="0 0 20 20">
+              <path d="M17.72,5.011H8.026c-0.27,1-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.9621-1.979,4.773H6.763L4.935,5.343C4.926" />
+              <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853514.994,12.386,13.972,12.386z" />
+            </svg>
+          </div>
         </div>
-
-    </div>
-  )
+        
+        {loading && <Loader />}
+        <h3 className='text-success'>{success}</h3>
+        <h4 className='text-danger'>{error}</h4>
+      </div>
+    </form>
+  </div>
+);
 }
-
 export default Makepayment;
+
