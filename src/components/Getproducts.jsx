@@ -63,7 +63,7 @@ const Getproducts = () => {
 
 
 <div className="row justify-content-center g-4">
-  <h1 Style="color: #667436">Crochet hooks</h1>
+  <h1>Crochet hooks</h1>
 
 {/* Card 1 */}
 <div className="col-md-4 d-flex justify-content-center">
