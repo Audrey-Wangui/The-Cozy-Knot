@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Loader from './Loader';
 import axios from 'axios';
-import styled from 'styled-components';
-import "../css/Addproducts.css"; // import the external css
+import Form from '../css/Form.css'
 
 const Addproducts = () => {
 
@@ -67,74 +66,68 @@ const Addproducts = () => {
     }
   }
   return (
-    <div className='row justify-content-center mt-4'>
-      <div className="col-md-6 p-4 card shadow">
-        
+    <div className="container">
+      <div className="form_area">
+        <h1 className="title">ADD PRODUCTS</h1>
 
         {/* Bind the loading hook */}
         {loading && <Loader />}
 
           <h3 className='text-success'> {success} </h3>
-          <h4 className='text-danger'> {error} </h4> 
+          <h4 className='text-danger'> {error} </h4>
 
-        <div className="page-background">
-        <div className="form-container">
-       
-        <form onSubmit={handleSubmit} className="form">
-           <h1 className="title">Welcome to Add Products</h1>
-           <h1 className="message">Input your product</h1>
-
-          
-          <label>
+        <form action onSubmit={handleSubmit}>
+          <div className="form_group">
+          <label className="sub_title" htmlFor="name">Product Name</label>
           <input type="text"
           placeholder='Enter the product name'
-          className="input"
+          className="form_style"
           required
           value={product_name}
-          onChange={(e) => setProductName(e.target.value)} /> 
-          </label><br />
+          onChange={(e) => setProductName(e.target.value)} />
+          </div> <br />
 
           {/* {product_name} */}
 
-          <label>
+          <div className="form_group">
+          <label className="sub_title" htmlFor="name">Product Description</label>
           <input type="text" 
           placeholder='Enter the product description'
-          className="input"
+          className="form_style"
           required
           value={product_description}
           onChange={(e) => setProductDescription(e.target.value)}/> 
-          </label><br />
+          </div><br />
 
           {/* {product_description} */}
-
-          <label>
+    
+          <div className="form_group">
+          <label className="sub_title" htmlFor="name">Product Cost</label>  
           <input type="number" 
           placeholder='Enter the product cost'
-          className="input"
+          className="form_style"
           required
           value={product_cost}
           onChange={(e) => setProductCost(e.target.value)}/>
-          </label> <br />
+          </div> <br />
 
           {/* {product_cost} */}
-
-          <b><label className="photoname">Product Photo</label></b>
+          
+          <div className="form_group">
+          <label className="sub_title" htmlFor="name">Product Description</label>
           <input type="file" 
-          className="photo"
+          className="form_style"
           required
           accept='image/*'
-          onChange={(e) => setProductPhoto(e.target.files[0])}/> <br />
+          onChange={(e) => setProductPhoto(e.target.files[0])}/> </div><br />
 
-           <button className="submit">Add Product</button>
+          <button className="btn">SIGN UP</button>
+            <br /><br />
         </form> 
-        
-        </div>
-        </div>
       </div>
         
     </div>
   )
 }
-
 
 export default Addproducts;                                                       

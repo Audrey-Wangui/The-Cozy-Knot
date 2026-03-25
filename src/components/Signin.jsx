@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import "../css/Signin.css"; // import the external css
+import signuo from '../css/Form.css'
+import Footer from './Footer';
 
 const Signin = () => {
 
@@ -74,57 +74,48 @@ const Signin = () => {
   }
 
   return (
-    <div className='row justify-content-center mt-4'>
-      <div className="col-md-8 p-4">
-        
+    <div className="container">
+      <div className="form_area">
+        <h1 className="title">SIGN IN</h1>
         <h5 className="text-info">{loading}</h5>
         <h3 className="text-success">{success}</h3>
         <h4 className="text-danger">{error}</h4>
 
-        <div className="page-background">
-        <div className="form-container">
-        
-
-        <form onSubmit={handlesubmit} className="form">
-          <h1 className="title">Sign In</h1>
-          <h1 className="message">Welcome Back! </h1>
-
-          <label>
-          <input type="email"
-          placeholder='Enter your email'
-          className="input"  
+        <form action onSubmit={handlesubmit}>
+         <div className="form_group">
+         <label className="sub_title" htmlFor="name">Email</label>  
+         <input type="email"
+          placeholder='Enter the email '
+          className="form_style"  
           required 
           value={email}
           onChange={(e) => setEmail(e.target.value)}/>
-          </label> <br />
+          </div> <br />
 
           {/* {email} */}
-
-          <label>
+        <div className="form_group">
+          <label className="sub_title" htmlFor="name">Password</label>
           <input type="password"
-          placeholder='Enter your password'
-          className="input"
+          placeholder='Enter the password here...'
+          className="form_style"
           required
           value={password}
-          onChange={(e) => setPassword(e.target.value)} /> 
-          </label> <br />
+          onChange={(e) => setPassword(e.target.value)} />
+          </div> <br />
 
           {/* {password} */}
 
-         <button className="submit">Submit</button>
-         <p className="signin">Don't have an Account? <Link to={'/signup'}> Sign up</Link> </p> 
+          <button className="btn">SIGN UP</button>
+           <br /><br />
+
+        Don't have an account? <Link className="link" to={'/signup'}> Register </Link>
         </form>
-       
-        </div>
-        </div>
 
       </div>
-      </div>
+    <Footer />
+    </div>
   )
 }
-
-  
-
 
 export default Signin;
 

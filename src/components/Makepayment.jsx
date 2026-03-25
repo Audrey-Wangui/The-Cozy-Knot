@@ -2,7 +2,9 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Loader from './Loader'
-import "../css/Makepayment.css" // import the external css
+import card from '../css/Makepayment.css'
+
+
 
 const Makepayment = () => {
     // Destructure the details passed from the get products component
@@ -59,48 +61,75 @@ const Makepayment = () => {
 
         }
     }
-
-    return(
-  <div className='row justify-content-center'>
-    <form onSubmit={handlesubmit}>
-      <div className="card">
-        <div className="card-img">
-          <img src={img_url + product.product_photo} alt="Product name" />
-        </div>
+    
+  return (
+    <div>
+        {/* <button className="btn btn-outline-primary">Back to Product</button> */}
+     
         
-        <div className="card-info">
-          <p className="text-title">{product.product_name}</p>
-          <p className="text-body text-light">{product.product_description}</p>
-          <p className="text-body text-warning">KES {product.product_cost}</p>
-        </div>
 
-        <div className="card-footer">
-          <span className="text-title">
-            <input 
-              type="number"
-              className='form-control'
-              placeholder='Enter the Phone Number (254xxxxxxxxx)'
-              required
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-            />
-          </span>
-          <div className="card-button">
-            Make Payment
-            <svg className="svg-icon" viewBox="0 0 20 20">
-              <path d="M17.72,5.011H8.026c-0.27,1-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.9621-1.979,4.773H6.763L4.935,5.343C4.926" />
-              <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853514.994,12.386,13.972,12.386z" />
-            </svg>
-          </div>
-        </div>
-        
+        <form onSubmit={handlesubmit}>
+
         {loading && <Loader />}
-        <h3 className='text-success'>{success}</h3>
-        <h4 className='text-danger'>{error}</h4>
-      </div>
-    </form>
-  </div>
-);
-}
-export default Makepayment;
 
+        <h3 className='text-success'> {success} </h3>
+        <h4 className='text-danger'> {error} </h4>
+
+           
+        <div className="pay_container">  
+        <div className="pay">
+          <p className='text-light'>Lipa na Mpesa</p>     
+              <div>
+              <div className="pay-img"><div className="img" />
+              <img 
+              src={img_url + product.product_photo} 
+              alt="product name"
+              className='product_img mt-3' />
+              </div> 
+              <div className="pay-title">{product.product_name}</div>
+              <div className="pay-subtitle">
+               {product.product_description.slice(0, 70)}... 
+              <hr className="pay-divider" />
+              <div className="pay-footer">
+ 
+              <div className="pay-price"><span>KES</span>{product.product_cost}
+              
+              <input type="number"
+                className='form-control'
+                placeholder='Phone Number (245xxxxxxxxxxx)'
+                required 
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}/> <br /><br />
+
+              </div> 
+
+              <button className="payment-btn">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 512 512"
+              width="20"
+              height="20"
+            >
+              <path d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z" />
+              <path d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z" />
+              <path d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z" />
+              <path d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z" />
+            </svg>
+            Make Payment
+          </button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+
+                </form>
+            </div>
+            
+
+
+  )
+}
+
+export default Makepayment;

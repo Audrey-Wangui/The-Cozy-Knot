@@ -2,11 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
-import "../css/Getproducts.css"; // import the external css
-import Patternsection from './Patternsection.jsx';
-import Advertbanner from './Advertbanner.jsx';
-
- 
+import card from "../css/Getproducts.css";
+import Patternsection from "./Patternsection.jsx"
+import Advertbanner from './Advertbanner.jsx'
 
 
 
@@ -57,169 +55,47 @@ const Getproducts = () => {
 //  console.log("The products fetch are: ",products)
 
   return (
-    <div className='row'>
+    <div>
+      <h3>Crochet hook</h3>
         {loading && <Loader />}
         <h4 className="text-danger"> {error} </h4>
 
+         <Patternsection />
+         <Advertbanner /> 
 
-<div className="row justify-content-center g-4">
-  <h1>Crochet hooks</h1>
-
-{/* Card 1 */}
-<div className="col-md-4 d-flex justify-content-center">
+        {/* Card One */}
         <div className="card">
-        <div className="card__shine" />
-        <div className="card__glow" />
-        <div className="card__content">
-
         {products.map((product) => (
-            <div>
-            <div className="card__badge">NEW</div>
-
-            <div className="card__image">
+                
+              <div className='justify-content-center'>
+              <div className="card-img"><div className="img" />
               <img 
               src={img_url + product.product_photo} 
               alt="product name"
               className='product_img mt-3' />
-            </div>
-
-              <div className="card__text">
-                <h5 className="card_title"> {product.product_name} </h5>
-                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
-              </div>
-
-              <div className="card__footer">
-              <div className="card__price">Kes {product.product_cost} </div>
-              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
-              <svg height={16} width={16} viewBox="0 0 24 24">
-                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
-              </svg>  
-             </div>   
-             </div> 
-             </div>
-              
+              </div> 
+              <div className="card-title">{product.product_name}</div>
+              <div className="card-subtitle">
+               {product.product_description.slice(0, 70)}... 
+              <hr className="card-divider" />
+              <div className="card-footer">
+              <div className="card-price"><span>KES</span>{product.product_cost}</div> 
+              <button className="card-btn" onClick={() => navigate("/makepayment",  {state : {product}})}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z" /><path d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z" /><path d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z" /><path d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z" /></svg>
              
-        
-        ))}
-        </div>
-    </div>
-    </div>
-  
-  {/* card two */}
-  <div className="col-md-4 d-flex justify-content-center">
-        <div className="card">
-        <div className="card__shine" />
-        <div className="card__glow" />
-        <div className="card__content">
-
-        {products.map((product) => (
-            <div>
-            <div className="card__badge">NEW</div>
-
-            <div className="card__image">
-              <img 
-              src={img_url + product.product_photo} 
-              alt="product name"
-              className='product_img mt-3' />
-            </div>
-
-              <div className="card__text">
-                <h5 className="card_title"> {product.product_name} </h5>
-                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
-              </div>
-
-              <div className="card__footer">
-              <div className="card__price">Kes {product.product_cost} </div>
-              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
-              <svg height={16} width={16} viewBox="0 0 24 24">
-                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
-              </svg>  
-             </div>   
-             </div> 
-             </div>
+          </button> 
               
-             
-        
-        ))}
-        </div>
-    </div>
-    </div>
-
-  {/*Card Three  */}
-  <div className="col-md-4 d-flex justify-content-center">
-        <div className="card">
-        <div className="card__shine" />
-        <div className="card__glow" />
-        <div className="card__content">
-
-        {products.map((product) => (
-            <div>
-            <div className="card__badge">NEW</div>
-
-            <div className="card__image">
-              <img 
-              src={img_url + product.product_photo} 
-              alt="product name"
-              className='product_img mt-3' />
             </div>
+            </div>
+            </div>
+        ))}   
+    </div>
 
-              <div className="card__text">
-                <h5 className="card_title"> {product.product_name} </h5>
-                <p className="card_description"> {product.product_description.slice(0, 70)}... </p>
-              </div>
-
-              <div className="card__footer">
-              <div className="card__price">Kes {product.product_cost} </div>
-              <div className="card__button" onClick={() => navigate("/makepayment",  {state : {product}})}>
-              <svg height={16} width={16} viewBox="0 0 24 24">
-                <path strokeWidth={2} stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor" />
-              </svg>  
-             </div>   
-             </div> 
-             </div>
-              
-            
         
-        ))}
-        </div>
-    </div>
     </div>
     
-
-    <Patternsection />
-    <Advertbanner />
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-
-
-
-
-
-
-
-
-
-    </div>
   )
 }
 
 export default Getproducts;
+console.log("Render");

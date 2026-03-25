@@ -7,16 +7,16 @@
 
 .pattern-content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Image side is slightly wider */
+  grid-template-columns: 1.2fr 1fr;
   gap: 50px;
   max-width: 1100px;
   align-items: center;
 }
 
-/* IMAGE STACK LOGIC */
+
 .image-stack {
   position: relative;
-  height: 500px; /* Adjust based on your images */
+  height: 500px; 
 }
 
 .image-main img {
@@ -32,7 +32,7 @@
   right: 0;
   width: 60%;
   height: 350px;
-  border: 15px solid #f4f4f4; /* Creates the gap between images */
+  border: 15px solid #f4f4f4; 
   box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -42,7 +42,7 @@
   object-fit: cover;
 }
 
-/* TEXT STYLING */
+
 .text-side {
   padding-left: 20px;
 }
@@ -62,12 +62,4 @@
 }
 
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .process-content {
-    grid-template-columns: 1fr;
-  }
-  .image-stack {
-    height: 400px;
-  }
-}
+

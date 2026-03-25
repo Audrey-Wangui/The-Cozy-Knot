@@ -1,149 +1,386 @@
-/* Modified version of alexruix from Uiverse.io */
-.card {
-  width: 90%; /* Responsive width */
-  max-width: 500px; /* Maximum width */
+/* Productpay.css - Complete CSS Code */
+
+/* Container to center the pay on screen */
+.pay-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main pay Styles */
+.pay {
+  --font-color: #323232;
+  --font-color-sub: #323232;
+  --bg-color: #f8f8f0;
+  --main-color: #323232;
+  --main-focus: #d9828d;
+  width: 280px;
   min-height: 500px;
-  padding: 1.5em;
-  background: #667436;
-  position: relative;
-  overflow: visible;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  height: auto;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-  gap: 18px;
-  margin: 60px auto; /* Centered with auto margins and space from header */
-}
-
-.card-img {
-  width: 100%;
-  height: 280px; /* Larger image height */
-  border-radius: .5rem;
-  flex-shrink: 0;
-  overflow: hidden;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: .5rem;
-  transform: scale(1.0); /* Slightly less zoom since image is larger */
-  transition: transform 0.3s ease;
-}
-
-
-.card-info {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: #ffbbc4;
-  font-size: 20px;
-}
-
-.card-footer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  padding: 20px;
   gap: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #ddd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.pay:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px var(--main-color);
+}
+
+/* Image Container */
+.pay-img {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
   flex-shrink: 0;
-  margin-top: auto;
-
 }
 
-.card-footer span {
-  width: 100%;
+.pay-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
-.card-footer input {
-  width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-sizing: border-box;
+.pay-img:hover {
+  transform: translateY(-3px);
 }
 
-/* Text */
-.text-title {
-  font-weight: 900;
-  font-size: 1.3em; /* Larger title */
-  line-height: 1.2;
+.pay-img:hover img {
+  transform: scale(1.05);
+}
+
+/* Product Title */
+.pay-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--font-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.3;
 }
 
-.text-body {
-  font-size: 0.95em; /* Slightly larger text */
-  margin: 0;
+/* Product Description */
+.pay-subtitle {
+  font-size: 13px;
   line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: white;
+  color: var(--font-color-sub);
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0;
 }
 
-/* Button */
-.card-button {
-  border: 1px solid #ffffff;
+/* Divider */
+.pay-divider {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+  margin: 5px 0;
+}
+
+/* pay Footer - Contains price, input, and button */
+.pay-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
+}
+
+/* Price Section */
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+}
+
+.pay-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #621e3e;
+}
+
+.pay-price span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+  margin-right: 4px;
+}
+
+/* Phone Number Input Styling */
+.phone-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  font-family: inherit;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  color: var(--font-color);
+}
+
+.phone-input:focus {
+  outline: none;
+  border-color: var(--main-focus);
+  box-shadow: 0 0 0 3px rgba(45, 140, 240, 0.1);
+}
+
+.phone-input::placeholder {
+  color: #999;
+  font-size: 12px;
+}
+
+.phone-input:hover {
+  border-color: var(--main-focus);
+}
+
+/* Payment Button Styling */
+.payment-btn {
+  width: 100%;
+  height: 42px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--font-color);
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-radius: 50px;
-  cursor: pointer;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  width: 100%;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 1em;
+  gap: 8px;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
 }
 
-.card-button:hover {
-  background-color: #252525;
-  color: #fffafa;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.card-button:hover svg {
-  fill: white;
-  stroke: white;
-}
-
-svg {
-  width: 20px; /* Slightly larger SVG */
+.payment-btn svg {
+  width: 20px;
   height: 20px;
-  fill: #252525;
-  transition: all 0.3s ease;
+  fill: var(--main-color);
+  transition: all 0.3s;
 }
 
-/* Success/Error messages */
-.text-success,
-.text-danger {
-  margin: 8px 0 0 0;
-  font-size: 13px; /* Slightly larger text */
-  text-align: center;
+.payment-btn:hover {
+  background: var(--main-focus);
+  border-color: var(--main-focus);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Loader positioning */
-.loader {
-  margin: 10px auto;
+.payment-btn:hover svg {
+  fill: white;
 }
 
-/* Remove conflicting hover effects */
-.card-img:hover {
+.payment-btn:active {
+  transform: translateY(1px);
+}
+
+/* Optional: Add ripple effect on button click */
+.payment-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.payment-btn:active::after {
+  width: 100px;
+  height: 100px;
+}
+
+/* Loading state for button (optional) */
+.payment-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.payment-btn.loading:hover {
   transform: none;
-  box-shadow: none;
+}
+
+/* Disabled state for button */
+.payment-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.payment-btn:disabled:hover {
+  transform: none;
+  background: var(--bg-color);
+  border-color: var(--main-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pay-container {
+    padding: 15px;
+  }
+  
+  .pay {
+    width: 100%;
+    max-width: 320px;
+    padding: 18px;
+    min-height: 480px;
+  }
+  
+  .pay-title {
+    font-size: 16px;
+  }
+  
+  .pay-subtitle {
+    font-size: 12px;
+  }
+  
+  .pay-price {
+    font-size: 22px;
+  }
+  
+  .pay-price span {
+    font-size: 14px;
+  }
+  
+  .payment-btn {
+    font-size: 14px;
+    height: 40px;
+  }
+  
+  .phone-input {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pay-container {
+    padding: 10px;
+  }
+  
+  .pay {
+    max-width: 100%;
+    padding: 16px;
+    min-height: 460px;
+  }
+  
+  .pay-img {
+    height: 100px;
+  }
+  
+  .pay-img img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pay-title {
+    font-size: 15px;
+  }
+  
+  .pay-subtitle {
+    font-size: 11px;
+  }
+  
+  .pay-price {
+    font-size: 20px;
+  }
+  
+  .pay-price span {
+    font-size: 13px;
+  }
+  
+  .payment-btn {
+    font-size: 13px;
+    height: 38px;
+  }
+  
+  .phone-input {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .phone-input::placeholder {
+    font-size: 11px;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .pay-container {
+    background: #1a1a1a;
+  }
+  
+  .pay {
+    --font-color: #e0e0e0;
+    --font-color-sub: #b0b0b0;
+    --bg-color: #2d2d2d;
+    --main-color: #e0e0e0;
+  }
+  
+  .phone-input {
+    background: #3d3d3d;
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+  }
+  
+  .phone-input::placeholder {
+    color: #888;
+  }
+  
+  .payment-btn {
+    background: #3d3d3d;
+    color: #e0e0e0;
+  }
+}
+
+/* Animation for pay appearance (Optional) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pay {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Smooth scrolling for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Box sizing fix for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
 }

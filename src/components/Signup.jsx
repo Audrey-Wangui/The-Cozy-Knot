@@ -1,10 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import "../css/Signup.css"; // import the external css
-
-
+import signup from '../css/Form.css';
 
 const Signup = () => {
   // Initialize the hooks
@@ -67,85 +64,69 @@ const Signup = () => {
 
   }
   return (
-    
-    <div  className='row justify-content-center mt-4'>
-        <div className="card col-md-6 shadow p-4">
-          
-          
+    <div  className="container">
+        <div className="form_area">
+          <h1 className="title">SIGN UP</h1>
 
           <h5 className='text-warning'> {loading} </h5>
           <h3 className="text-success"> {success} </h3>
           <h4 className="text-danger"> {error} </h4>
 
-          <div className="page-background">
-          <div className="form-container">
-          
-          <form onSubmit={handleSubmit} className="form">
-             <h1 className="title">Sign Up</h1>
-             <h1 className="message">Signup now and get full access to our app! </h1>
-
-            <label>
+          <form action onSubmit={handleSubmit}>
+            <div className="form_group">
+            <label className="sub_title" htmlFor="name">Name</label>
             <input type="text"
             placeholder='Enter the username'
-            className="input"
+            className="form_style" 
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required/>
-            </label> <br />
-            
-            {/* {username} */}
+            required/> 
+            </div><br />
 
-            <label>
+            {/* {username} */}
+            <div className="form_group">
+            <label className="sub_title" htmlFor="email">Email</label>
             <input type="email" 
             placeholder='Enter the email Address'
-            className="input"
+            className="form_style"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required/> 
-            </label><br />
+            required/>
+            </div> <br />
 
             {/* {email} */}
-
-            <label>
+            <div className="form_group">
+            <label className="sub_title" htmlFor="password">Password</label>
             <input type="password" 
             placeholder='Enter the Password'
-            className="input"
+            className="form_style"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required /> 
-            </label><br />
+            required />
+            </div> <br />
 
             {/* {password} */}
-
-            <label>
+            <div className="form_group">
+             <label className="sub_title" htmlFor="password">Phone</label>
             <input type="number"
             placeholder='Enter the Modile Number'
-            className="input"
+            className="form_style"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            required /> 
-            </label><br />
+            required />
+            </div> <br />
 
             {/* {phone} */}
 
-            <button className="submit">Submit</button>
-            <p className="signin">Already have an acount ? <Link to={'/signin'}> Sign in</Link> </p>
+            <button className="btn">SIGN UP</button>
+            <br /><br />
+
+            Already have an account? <Link  className="link" to={'/signin'}> Sign in</Link>
           </form>
-          
-          
-          
-          </div>
-          </div>
-          
-          
         </div>
-        </div>
-    
-    
+    </div>
   )
 }
-
-
 
 export default Signup;
 
